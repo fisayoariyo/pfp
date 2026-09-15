@@ -63,8 +63,10 @@ export function AboutPage() {
             </div>
             <p>
               I help companies from all over the world with tailor-made
-              solutions. With each project, I push my work to new horizons,
-              always putting quality first.
+              solutions.
+              <br />
+              With each project, I push my work to new horizons, always putting
+              quality first.
             </p>
             <p className="about-image__muted">
               Always exploring<span className="animate-dot">.</span>

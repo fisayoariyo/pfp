@@ -8,9 +8,9 @@ type Props = {
 
 const links = [
   { to: '/', label: 'Home', end: true },
-  { to: '/#work', label: 'Work' },
+  { to: '/work', label: 'Work' },
   { to: '/about', label: 'About' },
-  { to: '/#contact', label: 'Contact' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export function MobileMenu({ open, onClose }: Props) {
@@ -23,16 +23,12 @@ export function MobileMenu({ open, onClose }: Props) {
     }
   }, [open])
 
-  useEffect(() => {
-    onClose()
-  }, [pathname]) // eslint-disable-line react-hooks/exhaustive-deps
-
   return (
     <>
       <div
         className={`menu-backdrop${open ? ' is-open' : ''}`}
         onClick={onClose}
-        aria-hidden
+        aria-hidden={!open}
       />
       <aside
         className={`mobile-menu${open ? ' is-open' : ''}`}
@@ -64,17 +60,14 @@ export function MobileMenu({ open, onClose }: Props) {
                     end={link.end}
                     onClick={onClose}
                     className={({ isActive }) =>
-                      isActive && link.to === '/' ? 'is-current' : undefined
+                      isActive ? 'is-current' : undefined
                     }
                   >
                     {link.label}
-                    {link.to === '/' && pathname === '/' ? (
+                    {pathname === link.to ||
+                    (link.end && pathname === '/') ? (
                       <span className="nav-dot" />
                     ) : null}
-                    {link.to === '/about' && pathname === '/about' ? (
-                      <span className="nav-dot" />
-                    ) : null
-                    }
                   </NavLink>
                 </li>
               ))}

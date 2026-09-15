@@ -4,8 +4,12 @@ import { MobileMenu } from './MobileMenu'
 
 export function Nav() {
   const { pathname } = useLocation()
-  const [light, setLight] = useState(false)
+  const [light, setLight] = useState(pathname === '/' || pathname === '/work')
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     const onScroll = () => {
@@ -19,16 +23,39 @@ export function Nav() {
         return
       }
 
+      if (pathname === '/contact') {
+        setLight(false)
+        return
+      }
+
+      if (pathname === '/work') {
+        setLight(true)
+        return
+      }
+
       if (pathname !== '/') {
         setLight(false)
         return
       }
 
-      const hero = document.querySelector('.home-header') as HTMLElement | null
       const intro = document.querySelector('.home-intro') as HTMLElement | null
-      const cutoff =
-        (hero?.offsetHeight ?? 0) + (intro?.offsetHeight ?? 0) * 0.4
-      setLight(window.scrollY > cutoff)
+      const work = document.querySelector('.theme-light') as HTMLElement | null
+      const footer = document.querySelector('.site-footer') as HTMLElement | null
+      const mid = 72
+
+      if (footer && footer.getBoundingClientRect().top < mid) {
+        setLight(false)
+        return
+      }
+      if (work && work.getBoundingClientRect().top < mid) {
+        setLight(true)
+        return
+      }
+      if (intro && intro.getBoundingClientRect().top < mid) {
+        setLight(false)
+        return
+      }
+      setLight(true)
     }
 
     onScroll()
@@ -52,22 +79,24 @@ export function Nav() {
 
         <ul className="nav-links nav-links--desktop">
           <li>
-            <NavLink to="/#work">Work</NavLink>
+            <NavLink to="/work">Work</NavLink>
           </li>
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <NavLink to="/#contact">Contact</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
 
         <button
           type="button"
-          className={`menu-burger${light ? ' menu-burger--light' : ''}`}
-          aria-label="Open menu"
+          className={`menu-burger${light ? ' menu-burger--light' : ''}${
+            menuOpen ? ' is-open' : ''
+          }`}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(true)}
+          onClick={() => setMenuOpen((v) => !v)}
         >
           <span />
           <span />
