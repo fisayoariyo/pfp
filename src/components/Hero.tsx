@@ -35,7 +35,7 @@ export function Hero() {
   return (
     <section className="home-header" id="top">
       <div className="personal-image">
-        <img src="/portrait.jpg" alt="Fisayo Ariyo" width={720} height={960} />
+        <img src="/portrait.png" alt="Fisayo Ariyo" width={720} height={960} />
       </div>
 
       <div className="hanger">
