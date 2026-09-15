@@ -1570,25 +1570,24 @@ img {
   display: none;
   position: relative;
   z-index: 180;
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   border: 0;
   background: var(--color-dark);
   color: #fff;
   cursor: pointer;
   place-items: center;
-  gap: 0.32rem;
+  gap: 5px;
   padding: 0;
   flex-direction: column;
   flex-shrink: 0;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
 }
 
 .menu-burger span {
   display: block;
-  width: 1.15rem;
-  height: 1.5px;
+  width: 18px;
+  height: 2px;
   background: currentColor;
   border-radius: 1px;
 }
