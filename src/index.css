@@ -1615,7 +1615,6 @@ img {
   background: var(--color-dark);
   color: #fff;
   cursor: pointer;
-  display: none;
   place-items: center;
   gap: 0;
   padding: 0;
