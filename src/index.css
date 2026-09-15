@@ -170,11 +170,12 @@ img {
   position: relative;
   left: auto;
   transform: none;
-  height: min(88vh, 820px);
+  height: min(92vh, 860px);
   width: auto;
-  max-width: min(96vw, 580px);
+  max-width: min(100vw, 620px);
   object-fit: contain;
   object-position: center bottom;
+  scale: 1.08;
 }
 
 .hanger {
@@ -184,12 +185,14 @@ img {
   transform: translateY(-50%);
   z-index: 5;
   display: inline-block;
+  color: #fff;
 }
 
 .hanger-shape {
   display: block;
   width: auto;
   height: 6em;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.18));
 }
 
 .hanger p {
@@ -203,6 +206,7 @@ img {
   line-height: 1.2;
   font-size: 0.95rem;
   font-weight: 500;
+  color: #fff;
 }
 
 .hanger p span {
@@ -1417,6 +1421,150 @@ img {
   display: block !important;
 }
 
+/* ——— More work: filters + cards (WP-style) ——— */
+.work-more {
+  padding: 1rem 0 var(--section-padding);
+  background: var(--color-white);
+  color: var(--color-dark);
+}
+
+.work-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+}
+
+.work-filter__btn {
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(28, 29, 32, 0.15);
+  border-radius: 999px;
+  background: #fff;
+  color: rgba(28, 29, 32, 0.55);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.work-filter__btn:hover,
+.work-filter__btn.is-active {
+  background: var(--color-dark);
+  border-color: var(--color-dark);
+  color: #fff;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid rgba(28, 29, 32, 0.1);
+  border-radius: 0.85rem;
+  background: #fff;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(28, 29, 32, 0.22);
+  box-shadow: 0 16px 40px rgba(28, 29, 32, 0.1);
+}
+
+.project-card__link {
+  display: block;
+  color: inherit;
+}
+
+.project-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-card__img {
+  transform: scale(1.04);
+}
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(28, 29, 32, 0.28);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
+}
+
+.project-card__view {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.project-card__body {
+  padding: 1.15rem 1.2rem 1.35rem;
+}
+
+.project-card__category {
+  margin: 0 0 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--project-accent, var(--color-blue));
+}
+
+.project-card__title {
+  margin: 0 0 0.45rem;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.project-card__excerpt {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(28, 29, 32, 0.55);
+}
+
+.project-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(28, 29, 32, 0.45);
+}
+
+.work-more__empty {
+  margin: 1rem 0 0;
+  color: rgba(28, 29, 32, 0.45);
+}
+
 /* ——— Mobile menu ——— */
 .menu-burger {
   display: none;
@@ -1430,7 +1578,7 @@ img {
   color: #fff;
   cursor: pointer;
   place-items: center;
-  gap: 0.4rem;
+  gap: 0.32rem;
   padding: 0;
   flex-direction: column;
   flex-shrink: 0;
@@ -1439,10 +1587,10 @@ img {
 
 .menu-burger span {
   display: block;
-  width: 1.1rem;
+  width: 1.15rem;
   height: 1.5px;
   background: currentColor;
-  transition: transform 0.35s ease;
+  border-radius: 1px;
 }
 
 .menu-burger--light {
@@ -1737,6 +1885,33 @@ img {
     max-width: none;
     object-fit: cover;
     object-position: center 12%;
+    scale: 1;
+  }
+
+  .hero-role,
+  .hero-role h4 {
+    color: #fff;
+  }
+
+  .hero-role__arrow {
+    filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.45));
+  }
+
+  .hero-role h4 {
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+  }
+
+  .big-name h1 {
+    color: #fff;
+    text-shadow: 0 2px 22px rgba(0, 0, 0, 0.4);
+  }
+
+  .hanger {
+    color: #fff;
+  }
+
+  .hanger-shape {
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
   }
 
   .hanger {
