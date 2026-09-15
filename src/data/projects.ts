@@ -71,9 +71,10 @@ export const projects: Project[] = [
     service: 'Design & Development',
     excerpt: 'Headless WooCommerce storefront for Afrocentric fashion.',
     stack: 'React, Vite, TypeScript, TanStack Query, WooCommerce, GSAP',
+    liveUrl: 'https://clicksaladire.store/',
     year: '2025',
     accent: '#FCE4EC',
-    image: '/projects/clicks-aladire-site.svg',
+    image: '/projects/clicks-aladire.png',
   },
   {
     title: 'Nest Gadgets',
