@@ -132,18 +132,6 @@ export const projects: Project[] = [
     image: '/projects/clicks-aladire.png',
   },
   {
-    title: 'Nest Gadgets',
-    slug: 'nest-gadgets',
-    service: 'Design & Development',
-    excerpt: 'Modern gadget shop with deal finder, curated kits, and brand filters.',
-    stack: 'PHP, Custom CSS, JavaScript',
-    category: 'wordpress',
-    liveUrl: 'http://localhost/shop/',
-    year: '2026',
-    accent: '#F1F1F1',
-    image: '/projects/vela-store.png',
-  },
-  {
     title: 'OKAL Music',
     slug: 'okal-music',
     service: 'Design & Development',
@@ -201,6 +189,18 @@ export const projects: Project[] = [
     accent: '#F1F1F1',
     image: '/projects/miyaki-theme.png',
   },
+  {
+    title: 'Nest Gadgets',
+    slug: 'nest-gadgets',
+    service: 'Design & Development',
+    excerpt: 'Modern gadget shop with deal finder, curated kits, and brand filters.',
+    stack: 'PHP, Custom CSS, JavaScript',
+    category: 'wordpress',
+    liveUrl: 'http://localhost/shop/',
+    year: '2026',
+    accent: '#F1F1F1',
+    image: '/projects/nest-gadgets.png',
+  },
 ]
 
 /** Recent work — only these three */
@@ -216,7 +216,7 @@ export const bestThree = [...featured]
 /** Full catalog for More work */
 export const moreProjects = projects
 
-/** WordPress filter: JASET leads; other filters keep list order */
+/** WordPress filter: JASET first, Nest Gadgets last */
 export function sortMoreProjects(
   list: Project[],
   filter: 'all' | ProjectCategory,
@@ -228,6 +228,16 @@ export function sortMoreProjects(
     items.sort((a, b) => {
       if (a.slug === 'jase-peer-review') return -1
       if (b.slug === 'jase-peer-review') return 1
+      if (a.slug === 'nest-gadgets') return 1
+      if (b.slug === 'nest-gadgets') return -1
+      return 0
+    })
+  }
+
+  if (filter === 'all') {
+    items.sort((a, b) => {
+      if (a.slug === 'nest-gadgets') return 1
+      if (b.slug === 'nest-gadgets') return -1
       return 0
     })
   }
