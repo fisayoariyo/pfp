@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f4f1ec"/>
+  <rect x="0" y="0" width="1400" height="56" fill="#e8e4dc"/>
+  <circle cx="28" cy="28" r="7" fill="#ff5f57"/>
+  <circle cx="52" cy="28" r="7" fill="#febc2e"/>
+  <circle cx="76" cy="28" r="7" fill="#28c840"/>
+  <rect x="120" y="16" width="520" height="24" rx="12" fill="#fff" opacity="0.35"/>
+  <rect x="72" y="120" width="180" height="14" rx="7" fill="#222"/>
+  <text x="72" y="210" fill="#1c1d20" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700">Vela Store</text>
+  <text x="72" y="270" fill="#666" font-family="Arial, Helvetica, sans-serif" font-size="28">Editorial WooCommerce</text>
+  <rect x="72" y="330" width="160" height="48" rx="24" fill="#222"/>
+  <rect x="72" y="430" width="820" height="18" rx="9" fill="#1c1d20" opacity="0.12"/>
+  <rect x="72" y="470" width="640" height="18" rx="9" fill="#1c1d20" opacity="0.1"/>
+  <rect x="72" y="510" width="720" height="18" rx="9" fill="#1c1d20" opacity="0.08"/>
+  <rect x="980" y="140" width="340" height="220" rx="18" fill="#222" opacity="0.25"/>
+  <rect x="980" y="390" width="340" height="140" rx="18" fill="#1c1d20" opacity="0.08"/>
+  <rect x="980" y="560" width="340" height="140" rx="18" fill="#1c1d20" opacity="0.06"/>
+</svg>

@@ -8,7 +8,13 @@ export type Project = {
   repoUrl?: string
   year: string
   accent: string
+  /** Local fallback / primary preview image — prefer real site shots */
   image: string
+}
+
+/** Curated local site shots — never swap for remote thumbnails. */
+export function previewSrc(project: Project): string {
+  return project.image
 }
 
 export const projects: Project[] = [
@@ -20,8 +26,8 @@ export const projects: Project[] = [
     stack: 'WordPress, PHP, Custom CSS, JavaScript',
     liveUrl: 'http://localhost/epk/',
     year: '2026',
-    accent: '#831EAC',
-    image: '/projects/ossy-brown-epk.jpg',
+    accent: '#1a1a1a',
+    image: '/projects/ossy-brown-epk-site.svg',
   },
   {
     title: 'DotCharis Consult',
@@ -30,9 +36,10 @@ export const projects: Project[] = [
     excerpt:
       'Multi-role consultancy platform for real estate, travel, construction, and agent onboarding.',
     stack: 'Next.js, React, TypeScript, Tailwind, Supabase, GSAP',
+    liveUrl: 'https://www.dotcharisconsult.com/',
     repoUrl: 'https://github.com/fisayoariyo/cc',
     year: '2025',
-    accent: '#06B6D4',
+    accent: '#0a1628',
     image: '/projects/dotcharis-consult.png',
   },
   {
@@ -42,10 +49,11 @@ export const projects: Project[] = [
     excerpt:
       'Mobile-first AgTech enrollment with biometric verification for farmers and field agents.',
     stack: 'React, Vite, Tailwind, DigitalPersona SDK, REST API',
+    liveUrl: 'https://hfei.hashmarcropex.com/',
     repoUrl: 'https://github.com/fisayoariyo/hashp',
     year: '2025',
-    accent: '#22C55E',
-    image: '/projects/hfei-cropex.png',
+    accent: '#E8F5E9',
+    image: '/projects/hfei-cropex.jpg',
   },
   {
     title: 'CropEx Admin',
@@ -54,8 +62,8 @@ export const projects: Project[] = [
     excerpt: 'Offline-first admin dashboard for farmers, agents, and verifications.',
     stack: 'React 19, Vite, TypeScript, Tailwind, sql.js',
     year: '2025',
-    accent: '#84CC16',
-    image: '/projects/cropex-admin.png',
+    accent: '#F1F1F1',
+    image: '/projects/cropex-admin-site.svg',
   },
   {
     title: 'Clicks Aladire',
@@ -64,8 +72,8 @@ export const projects: Project[] = [
     excerpt: 'Headless WooCommerce storefront for Afrocentric fashion.',
     stack: 'React, Vite, TypeScript, TanStack Query, WooCommerce, GSAP',
     year: '2025',
-    accent: '#EC4899',
-    image: '/projects/clicks-aladire.png',
+    accent: '#FCE4EC',
+    image: '/projects/clicks-aladire-site.svg',
   },
   {
     title: 'Nest Gadgets',
@@ -75,8 +83,8 @@ export const projects: Project[] = [
     stack: 'PHP, Custom CSS, JavaScript',
     liveUrl: 'http://localhost/shop/',
     year: '2026',
-    accent: '#111111',
-    image: '/projects/vela-store.png',
+    accent: '#F1F1F1',
+    image: '/projects/nest-gadgets-site.svg',
   },
   {
     title: 'BSHP Portfolio',
@@ -86,7 +94,7 @@ export const projects: Project[] = [
     stack: 'WordPress, Tailwind, Matter.js, GSAP, PHP',
     liveUrl: 'https://pelumioluwaseun.cc',
     year: '2025',
-    accent: '#A855F7',
+    accent: '#101010',
     image: '/projects/bshp-portfolio.png',
   },
   {
@@ -97,7 +105,7 @@ export const projects: Project[] = [
     stack: 'WordPress, Custom CSS, JavaScript, PHP',
     liveUrl: 'https://www.iamokal.com',
     year: '2025',
-    accent: '#F59E0B',
+    accent: '#F5F0E8',
     image: '/projects/okal-music.jpg',
   },
   {
@@ -108,7 +116,7 @@ export const projects: Project[] = [
     stack: 'WordPress, PHP, Custom CSS, JavaScript',
     liveUrl: 'https://mdiconsults.com',
     year: '2025',
-    accent: '#EAB308',
+    accent: '#F1F1F1',
     image: '/projects/mdi-consults.png',
   },
   {
@@ -119,7 +127,7 @@ export const projects: Project[] = [
     stack: 'WordPress, PHP, Custom CSS',
     liveUrl: 'https://milliondollarideasltd.com',
     year: '2025',
-    accent: '#10B981',
+    accent: '#0a0a0a',
     image: '/projects/million-dollar-ideas.jpg',
   },
   {
@@ -129,8 +137,8 @@ export const projects: Project[] = [
     excerpt: 'Academic journal platform with multi-role peer review workflow.',
     stack: 'WordPress, PHP, Peer Review Plugin',
     year: '2025',
-    accent: '#6366F1',
-    image: '/projects/jase-peer-review.png',
+    accent: '#EEF0FF',
+    image: '/projects/jase-peer-review-site.svg',
   },
   {
     title: 'Miyaki Store',
@@ -139,7 +147,7 @@ export const projects: Project[] = [
     excerpt: 'Editorial minimal WooCommerce theme for fashion.',
     stack: 'WordPress, WooCommerce, PHP, Elementor',
     year: '2025',
-    accent: '#F472B6',
+    accent: '#F8F1F4',
     image: '/projects/miyaki-theme.png',
   },
   {
@@ -149,9 +157,21 @@ export const projects: Project[] = [
     excerpt: 'Clean editorial WooCommerce theme — mobile-first.',
     stack: 'WordPress, WooCommerce, PHP 8+',
     year: '2025',
-    accent: '#64748B',
-    image: '/projects/vela-store.png',
+    accent: '#F1F1F1',
+    image: '/projects/vela-store-site.svg',
   },
 ]
 
-export const featured = projects.slice(0, 4)
+export const featured = [
+  projects.find((p) => p.slug === 'dotcharis-consult')!,
+  projects.find((p) => p.slug === 'hfei-cropex')!,
+  projects.find((p) => p.slug === 'okal-music')!,
+  projects.find((p) => p.slug === 'bshp-portfolio')!,
+].filter(Boolean)
+
+/** Best three for mobile homepage tiles */
+export const bestThree = [
+  projects.find((p) => p.slug === 'bshp-portfolio')!,
+  projects.find((p) => p.slug === 'dotcharis-consult')!,
+  projects.find((p) => p.slug === 'hfei-cropex')!,
+].filter(Boolean)

@@ -5,11 +5,15 @@ import { Footer } from '../components/Footer'
 
 export function HomePage() {
   return (
-    <>
-      <Hero />
-      <Intro />
-      <Work />
-      <Footer />
-    </>
+    <div className="home-page">
+      <div className="home-hero-pin">
+        <Hero />
+      </div>
+      <div className="home-scroll-content">
+        <Intro />
+        <Work />
+        <Footer />
+      </div>
+    </div>
   )
 }
