@@ -44,6 +44,19 @@ export function projectHref(project: Project): string {
 
 export const projects: Project[] = [
   {
+    title: 'JASET',
+    slug: 'jase-peer-review',
+    service: 'Design & Development',
+    excerpt:
+      'University of Ibadan — Journal of Automotive Science and Engineering Technology. Peer review, manuscript pipeline, and published volumes.',
+    stack: 'WordPress, PHP, Peer Review Plugin',
+    category: 'specialized',
+    liveUrl: 'https://jasetui.org',
+    year: '2026',
+    accent: '#0B1F3A',
+    image: '/projects/jase-peer-review.jpg',
+  },
+  {
     title: 'Ossy Brown EPK',
     slug: 'ossy-brown-epk',
     service: 'Design & Development',
@@ -92,7 +105,7 @@ export const projects: Project[] = [
     category: 'specialized',
     year: '2025',
     accent: '#F1F1F1',
-    image: '/projects/cropex-admin-site.svg',
+    image: '/projects/cropex-admin.png',
   },
   {
     title: 'Clicks Aladire',
@@ -116,7 +129,7 @@ export const projects: Project[] = [
     liveUrl: 'http://localhost/shop/',
     year: '2026',
     accent: '#F1F1F1',
-    image: '/projects/nest-gadgets-site.svg',
+    image: '/projects/vela-store.png',
   },
   {
     title: 'BSHP Portfolio',
@@ -167,17 +180,6 @@ export const projects: Project[] = [
     image: '/projects/million-dollar-ideas.jpg',
   },
   {
-    title: 'JASE Peer Review',
-    slug: 'jase-peer-review',
-    service: 'Design & Development',
-    excerpt: 'Academic journal platform with multi-role peer review workflow.',
-    stack: 'WordPress, PHP, Peer Review Plugin',
-    category: 'specialized',
-    year: '2025',
-    accent: '#EEF0FF',
-    image: '/projects/jase-peer-review-site.svg',
-  },
-  {
     title: 'Miyaki Store',
     slug: 'miyaki-theme',
     service: 'Design & Development',
@@ -197,24 +199,23 @@ export const projects: Project[] = [
     category: 'woocommerce',
     year: '2025',
     accent: '#F1F1F1',
-    image: '/projects/vela-store-site.svg',
+    image: '/projects/miyaki-theme.png',
   },
 ]
 
 export const featured = [
+  projects.find((p) => p.slug === 'jase-peer-review')!,
   projects.find((p) => p.slug === 'dotcharis-consult')!,
   projects.find((p) => p.slug === 'hfei-cropex')!,
-  projects.find((p) => p.slug === 'okal-music')!,
   projects.find((p) => p.slug === 'bshp-portfolio')!,
 ].filter(Boolean)
 
 /** Best three for mobile homepage tiles */
 export const bestThree = [
-  projects.find((p) => p.slug === 'bshp-portfolio')!,
+  projects.find((p) => p.slug === 'jase-peer-review')!,
   projects.find((p) => p.slug === 'dotcharis-consult')!,
   projects.find((p) => p.slug === 'hfei-cropex')!,
 ].filter(Boolean)
 
-export const moreProjects = projects.filter(
-  (p) => !featured.some((f) => f.slug === p.slug),
-)
+/** Full catalog for More work (JASET leads) */
+export const moreProjects = projects

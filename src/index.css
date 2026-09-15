@@ -339,10 +339,16 @@ img {
   top: 42%;
   z-index: 5;
   max-width: none;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 28px rgba(28, 29, 32, 0.08);
 }
 
 .hero-role__arrow {
   margin-bottom: 0.75rem;
+  color: var(--color-dark);
 }
 
 .hero-role h4 {
@@ -386,7 +392,7 @@ img {
 .big-name h1 {
   margin: 0;
   padding: 0;
-  color: var(--color-dark);
+  color: #000;
   font-size: max(9rem, 15vw);
   font-weight: 500;
   line-height: 1;
@@ -523,23 +529,33 @@ img {
 }
 
 .btn-pill--light {
-  border-color: rgba(28, 29, 32, 0.25);
-  color: var(--color-dark);
-  background: var(--color-white);
+  border-color: var(--color-blue);
+  color: #fff;
+  background: var(--color-blue);
 }
 
 .btn-pill--light .count-nr {
-  background: var(--color-dark);
-  color: var(--color-white);
+  background: #fff;
+  color: var(--color-dark);
 }
 
 .btn-pill--light:hover {
-  color: var(--color-white);
+  color: var(--color-dark);
+  background: #fff;
+  border-color: var(--color-dark);
 }
 
 .btn-pill--light:hover .count-nr {
-  background: var(--color-white);
-  color: var(--color-dark);
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.btn-pill--light .btn-pill__fill {
+  display: none;
+}
+
+.theme-light .grid-sub-title h5 {
+  color: rgba(28, 29, 32, 0.55);
 }
 
 .grid-sub-title {
@@ -1540,7 +1556,8 @@ img {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--project-accent, var(--color-blue));
+  color: var(--color-dark);
+  opacity: 0.55;
 }
 
 .project-card__title {
@@ -1554,7 +1571,7 @@ img {
   margin: 0 0 0.85rem;
   font-size: 0.92rem;
   line-height: 1.45;
-  color: rgba(28, 29, 32, 0.55);
+  color: rgba(28, 29, 32, 0.7);
 }
 
 .project-card__meta {
@@ -1575,15 +1592,15 @@ img {
   display: none;
   position: relative;
   z-index: 180;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   border: 0;
   background: var(--color-dark);
   color: #fff;
   cursor: pointer;
   place-items: center;
-  gap: 5px;
+  gap: 3px;
   padding: 0;
   flex-direction: column;
   flex-shrink: 0;
@@ -1591,8 +1608,8 @@ img {
 
 .menu-burger span {
   display: block;
-  width: 18px;
-  height: 2px;
+  width: 14px;
+  height: 1.5px;
   background: currentColor;
   border-radius: 1px;
 }
@@ -1895,20 +1912,21 @@ img {
 
   .hero-role,
   .hero-role h4 {
-    color: #fff;
+    color: var(--color-dark);
   }
 
   .hero-role__arrow {
-    filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.45));
+    filter: none;
+    color: var(--color-dark);
   }
 
   .hero-role h4 {
-    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+    text-shadow: none;
   }
 
   .big-name h1 {
-    color: #fff;
-    text-shadow: 0 2px 22px rgba(0, 0, 0, 0.4);
+    color: #000;
+    text-shadow: none;
   }
 
   .hanger {
