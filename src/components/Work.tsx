@@ -7,6 +7,7 @@ import {
   moreProjects,
   previewSrc,
   projectHref,
+  sortMoreProjects,
   type Project,
   type ProjectCategory,
 } from '../data/projects'
@@ -57,12 +58,12 @@ export function Work({ startOpen = false }: { startOpen?: boolean }) {
   const [showMore, setShowMore] = useState(startOpen)
   const [filter, setFilter] = useState<'all' | ProjectCategory>('all')
 
-  const remaining = moreProjects.length
+  const remaining = Math.max(moreProjects.length - featured.length, 0)
 
-  const filteredMore = useMemo(() => {
-    if (filter === 'all') return moreProjects
-    return moreProjects.filter((p) => p.category === filter)
-  }, [filter])
+  const filteredMore = useMemo(
+    () => sortMoreProjects(moreProjects, filter),
+    [filter],
+  )
 
   return (
     <>
@@ -92,7 +93,12 @@ export function Work({ startOpen = false }: { startOpen?: boolean }) {
                     <h4>
                       <span>{project.title}</span>
                     </h4>
-                    <p>{project.service}</p>
+                    <div className="work-meta">
+                      <p>{project.service}</p>
+                      <p className="work-year">
+                        {categoryLabels[project.category]}
+                      </p>
+                    </div>
                   </a>
                 </li>
               )
@@ -126,8 +132,9 @@ export function Work({ startOpen = false }: { startOpen?: boolean }) {
                       <p className="tile-service">
                         {categoryLabels[project.category]}
                       </p>
-                      <p className="tile-year">{project.year}</p>
+                      <p className="tile-year">{project.service}</p>
                     </div>
+                    <p className="tile-category-year">{project.year}</p>
                   </a>
                 </li>
               )

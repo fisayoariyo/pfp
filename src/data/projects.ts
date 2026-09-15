@@ -44,13 +44,53 @@ export function projectHref(project: Project): string {
 
 export const projects: Project[] = [
   {
+    title: 'DotCharis Consult',
+    slug: 'dotcharis-consult',
+    service: 'Interaction & Development',
+    excerpt:
+      'Multi-role consultancy platform for real estate, travel, construction, and agent onboarding.',
+    stack: 'Next.js, React, TypeScript, Tailwind, Supabase, GSAP',
+    category: 'react',
+    liveUrl: 'https://www.dotcharisconsult.com/',
+    repoUrl: 'https://github.com/fisayoariyo/cc',
+    year: '2025',
+    accent: '#0a1628',
+    image: '/projects/dotcharis-consult.png',
+  },
+  {
+    title: 'BSHP Portfolio',
+    slug: 'bshp-portfolio',
+    service: 'Interaction & Development',
+    excerpt: 'Interactive PM portfolio with Matter.js physics hero and GSAP.',
+    stack: 'WordPress, Tailwind, Matter.js, GSAP, PHP',
+    category: 'wordpress',
+    liveUrl: 'https://pelumioluwaseun.cc',
+    year: '2025',
+    accent: '#101010',
+    image: '/projects/bshp-portfolio.png',
+  },
+  {
+    title: 'HFEI CropEx',
+    slug: 'hfei-cropex',
+    service: 'Design & Development',
+    excerpt:
+      'Mobile-first AgTech enrollment with biometric verification for farmers and field agents.',
+    stack: 'React, Vite, Tailwind, DigitalPersona SDK, REST API',
+    category: 'specialized',
+    liveUrl: 'https://hfei.hashmarcropex.com/',
+    repoUrl: 'https://github.com/fisayoariyo/hashp',
+    year: '2025',
+    accent: '#E8F5E9',
+    image: '/projects/hfei-cropex.jpg',
+  },
+  {
     title: 'JASET',
     slug: 'jase-peer-review',
     service: 'Design & Development',
     excerpt:
       'University of Ibadan — Journal of Automotive Science and Engineering Technology. Peer review, manuscript pipeline, and published volumes.',
     stack: 'WordPress, PHP, Peer Review Plugin',
-    category: 'specialized',
+    category: 'wordpress',
     liveUrl: 'https://jasetui.org',
     year: '2026',
     accent: '#0B1F3A',
@@ -67,34 +107,6 @@ export const projects: Project[] = [
     year: '2026',
     accent: '#1a1a1a',
     image: '/projects/ossy-brown-epk.jpg',
-  },
-  {
-    title: 'DotCharis Consult',
-    slug: 'dotcharis-consult',
-    service: 'Interaction & Development',
-    excerpt:
-      'Multi-role consultancy platform for real estate, travel, construction, and agent onboarding.',
-    stack: 'Next.js, React, TypeScript, Tailwind, Supabase, GSAP',
-    category: 'react',
-    liveUrl: 'https://www.dotcharisconsult.com/',
-    repoUrl: 'https://github.com/fisayoariyo/cc',
-    year: '2025',
-    accent: '#0a1628',
-    image: '/projects/dotcharis-consult.png',
-  },
-  {
-    title: 'HFEI CropEx',
-    slug: 'hfei-cropex',
-    service: 'Design & Development',
-    excerpt:
-      'Mobile-first AgTech enrollment with biometric verification for farmers and field agents.',
-    stack: 'React, Vite, Tailwind, DigitalPersona SDK, REST API',
-    category: 'specialized',
-    liveUrl: 'https://hfei.hashmarcropex.com/',
-    repoUrl: 'https://github.com/fisayoariyo/hashp',
-    year: '2025',
-    accent: '#E8F5E9',
-    image: '/projects/hfei-cropex.jpg',
   },
   {
     title: 'CropEx Admin',
@@ -130,18 +142,6 @@ export const projects: Project[] = [
     year: '2026',
     accent: '#F1F1F1',
     image: '/projects/vela-store.png',
-  },
-  {
-    title: 'BSHP Portfolio',
-    slug: 'bshp-portfolio',
-    service: 'Interaction & Development',
-    excerpt: 'Interactive PM portfolio with Matter.js physics hero and GSAP.',
-    stack: 'WordPress, Tailwind, Matter.js, GSAP, PHP',
-    category: 'wordpress',
-    liveUrl: 'https://pelumioluwaseun.cc',
-    year: '2025',
-    accent: '#101010',
-    image: '/projects/bshp-portfolio.png',
   },
   {
     title: 'OKAL Music',
@@ -203,19 +203,34 @@ export const projects: Project[] = [
   },
 ]
 
+/** Recent work — only these three */
 export const featured = [
-  projects.find((p) => p.slug === 'jase-peer-review')!,
   projects.find((p) => p.slug === 'dotcharis-consult')!,
-  projects.find((p) => p.slug === 'hfei-cropex')!,
   projects.find((p) => p.slug === 'bshp-portfolio')!,
+  projects.find((p) => p.slug === 'hfei-cropex')!,
 ].filter(Boolean)
 
 /** Best three for mobile homepage tiles */
-export const bestThree = [
-  projects.find((p) => p.slug === 'jase-peer-review')!,
-  projects.find((p) => p.slug === 'dotcharis-consult')!,
-  projects.find((p) => p.slug === 'hfei-cropex')!,
-].filter(Boolean)
+export const bestThree = [...featured]
 
-/** Full catalog for More work (JASET leads) */
+/** Full catalog for More work */
 export const moreProjects = projects
+
+/** WordPress filter: JASET leads; other filters keep list order */
+export function sortMoreProjects(
+  list: Project[],
+  filter: 'all' | ProjectCategory,
+): Project[] {
+  const items =
+    filter === 'all' ? [...list] : list.filter((p) => p.category === filter)
+
+  if (filter === 'wordpress') {
+    items.sort((a, b) => {
+      if (a.slug === 'jase-peer-review') return -1
+      if (b.slug === 'jase-peer-review') return 1
+      return 0
+    })
+  }
+
+  return items
+}
