@@ -1105,34 +1105,38 @@ img {
 .site-footer {
   position: relative;
   background: var(--color-dark);
-  padding: 0 0 2rem;
+  padding: 0 0 1.25rem;
   overflow: hidden;
 }
 
 .footer-curve {
-  height: clamp(3rem, 8vw, 6rem);
+  height: clamp(1.75rem, 4vw, 3rem);
   background: var(--color-white);
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
   margin-bottom: -1px;
 }
 
 .footer-inner {
-  padding-top: 3rem;
+  padding-top: 1.5rem;
 }
 
 .footer-cta {
   position: relative;
-  padding-bottom: 5rem;
+  padding-bottom: 1.25rem;
 }
 
 .footer-inline-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.85rem;
+  margin-left: 0.65rem;
   color: var(--color-white);
-  /* Point down-left toward Get in touch */
   transform: none;
+}
+
+.footer-inline-arrow svg {
+  width: 18px;
+  height: 18px;
 }
 
 .footer-cta__line--together {
@@ -1141,8 +1145,8 @@ img {
 
 .footer-stripe-wrap {
   position: relative;
-  margin-top: 2.5rem;
-  min-height: 6rem;
+  margin-top: 1.25rem;
+  min-height: 4.5rem;
 }
 
 .footer-stripe {
@@ -1178,14 +1182,15 @@ img {
 .footer-pills {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  max-width: 28rem;
-  padding: 1rem 0 2.5rem;
+  gap: 0.55rem;
+  max-width: 26rem;
+  padding: 0.35rem 0 1.25rem;
 }
 
 .footer-pills .btn-pill {
   width: 100%;
   justify-content: center;
+  padding: 0.85rem 1.25rem;
 }
 
 .footer-simple {
@@ -1194,17 +1199,17 @@ img {
 
 .footer-simple__block {
   display: grid;
-  gap: 0.55rem;
-  margin-bottom: 2.25rem;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
 }
 
 .footer-simple__block a,
 .footer-simple__block p {
   margin: 0;
   color: var(--color-white);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .footer-simple__block a:hover {
@@ -1213,8 +1218,8 @@ img {
 
 .footer-meta-label {
   display: block;
-  margin-bottom: 0.55rem;
-  font-size: 0.72rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.4);
@@ -1224,27 +1229,27 @@ img {
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .dennis-footer-bottom strong {
   color: var(--color-white);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .footer-socials-block {
-  margin-top: 0.5rem;
-  padding-top: 0.25rem;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .footer-social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 1.35rem;
-  margin-top: 0.55rem;
+  gap: 0.75rem 1.15rem;
+  margin-top: 0.35rem;
 }
 
 .footer-social-links a {
@@ -1809,7 +1814,7 @@ img {
 
 .footer-cta h2 {
   margin: 0;
-  font-size: clamp(3rem, 9vw, 7rem);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
   font-weight: 500;
   letter-spacing: -0.045em;
   line-height: 1;
@@ -1819,12 +1824,12 @@ img {
 .footer-cta__line {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .profile-picture {
-  width: clamp(3rem, 6vw, 5rem);
-  height: clamp(3rem, 6vw, 5rem);
+  width: clamp(2.4rem, 4vw, 3.5rem);
+  height: clamp(2.4rem, 4vw, 3.5rem);
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -1833,8 +1838,9 @@ img {
 
 .footer-round-wrap .btn-round {
   position: relative;
-  width: clamp(9rem, 18vw, 11rem);
-  height: clamp(9rem, 18vw, 11rem);
+  width: clamp(7rem, 12vw, 8.5rem);
+  height: clamp(7rem, 12vw, 8.5rem);
+  font-size: 0.9rem;
 }
 
 .btn-pill__icon {
@@ -2001,23 +2007,33 @@ img {
   }
 
   .footer-cta {
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
   }
 
   .footer-cta h2 {
-    font-size: clamp(2.6rem, 12vw, 3.6rem);
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
   }
 
   .footer-inline-arrow {
     position: absolute;
     right: 0.25rem;
-    top: -1.75rem;
+    top: -1.25rem;
   }
 
   .footer-round-wrap .btn-round,
   .footer-get-in-touch {
-    width: 9.5rem;
-    height: 9.5rem;
+    width: 7.25rem;
+    height: 7.25rem;
+    font-size: 0.82rem;
+  }
+
+  .footer-simple__block {
+    margin-bottom: 1rem;
+  }
+
+  .dennis-footer-bottom {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
   }
 
   .nav-links {
