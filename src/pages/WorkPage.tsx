@@ -10,7 +10,7 @@ export function WorkPage() {
           <h1>Selected projects</h1>
         </div>
       </header>
-      <Work />
+      <Work startOpen />
       <Footer />
     </div>
   )
