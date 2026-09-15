@@ -170,15 +170,11 @@ img {
   position: relative;
   left: auto;
   transform: none;
-  height: min(92vh, 880px);
+  height: min(88vh, 820px);
   width: auto;
-  max-width: min(100vw, 640px);
-  object-fit: cover;
-  object-position: center 12%;
-  /* slight zoom so subject fills frame */
-  scale: 1.08;
-  /* blend cutout onto white hero */
-  mix-blend-mode: normal;
+  max-width: min(96vw, 580px);
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .hanger {
@@ -658,9 +654,9 @@ img {
 }
 
 .mouse-pos-list-image.active {
-  width: clamp(18rem, 36vw, 32rem);
-  height: clamp(11.5rem, 22.5vw, 20rem);
-  background: #f4f4f4;
+  width: clamp(14rem, 28vw, 24rem);
+  height: clamp(14rem, 28vw, 24rem);
+  background: #1c1d20;
 }
 
 .mouse-pos-list-image::before {
@@ -675,17 +671,16 @@ img {
 
 .overlay-image--hover {
   position: absolute;
-  inset: 0.5rem;
+  inset: 0.55rem;
   border-radius: 0.15rem;
   overflow: hidden;
-  background: #fff !important;
 }
 
 .overlay-image--hover img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
@@ -710,14 +705,12 @@ img {
   border-radius: 0.35rem;
   margin-bottom: 0.5rem;
   overflow: hidden;
-  background: #f4f4f4;
 }
 
 .tile-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
 }
 
 .btn-round-wrap {
@@ -1030,14 +1023,12 @@ img {
   border-radius: 0.35rem;
   margin-bottom: 0.5rem;
   overflow: hidden;
-  background: #f4f4f4;
 }
 
 .tile-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
 }
 
 .tile-row h4 {
@@ -1745,8 +1736,7 @@ img {
     height: 100%;
     max-width: none;
     object-fit: cover;
-    object-position: center 10%;
-    scale: 1.18;
+    object-position: center 12%;
   }
 
   .hanger {
