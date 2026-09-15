@@ -185,14 +185,14 @@ img {
   transform: translateY(-50%);
   z-index: 5;
   display: inline-block;
-  color: #fff;
+  color: #1c1d20;
 }
 
 .hanger-shape {
   display: block;
   width: auto;
   height: 6em;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
 }
 
 .hanger p {
@@ -215,23 +215,26 @@ img {
 
 .digital-ball {
   position: absolute;
-  right: 0.9em;
-  top: 0.9em;
-  width: 4.2em;
-  height: 4.2em;
+  right: 0.75em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.6em;
+  height: 3.6em;
   border-radius: 50%;
   background: var(--color-blue);
   overflow: hidden;
   z-index: 2;
+  display: grid;
+  place-items: center;
 }
 
 .globe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  transform: translate(-50%, -50%);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 62%;
+  height: 62%;
+  transform: none;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -246,7 +249,7 @@ img {
   transform: translate(-50%, -50%) rotate(30deg);
   animation: globe 5.4s cubic-bezier(0.35, 0, 0.65, 1) infinite;
   overflow: hidden;
-  box-shadow: inset 0 0 0 0.125em var(--color-white);
+  box-shadow: inset 0 0 0 0.1em var(--color-white);
 }
 
 .globe .circle {
@@ -1612,17 +1615,20 @@ img {
   background: var(--color-dark);
   color: #fff;
   cursor: pointer;
+  display: none;
   place-items: center;
-  gap: 3px;
+  gap: 0;
   padding: 0;
   flex-direction: column;
   flex-shrink: 0;
+  justify-content: center;
 }
 
 .menu-burger span {
   display: block;
   width: 14px;
   height: 1.5px;
+  margin: 1.5px 0;
   background: currentColor;
   border-radius: 1px;
 }
@@ -1938,27 +1944,36 @@ img {
   }
 
   .big-name h1 {
-    color: #000;
-    text-shadow: none;
-  }
-
-  .hanger {
     color: #fff;
-  }
-
-  .hanger-shape {
-    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
   }
 
   .hanger {
+    color: #f2f2f2;
     top: auto;
     bottom: 34%;
     left: 0;
     transform: none;
   }
 
+  .hanger p {
+    color: #111;
+  }
+
   .hanger-shape {
     height: 4.6em;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.2));
+  }
+
+  .digital-ball {
+    width: 3.2em;
+    height: 3.2em;
+    right: 0.65em;
+  }
+
+  .globe {
+    width: 58%;
+    height: 58%;
   }
 
   .hero-role {
