@@ -59,7 +59,10 @@ export function Hero() {
           </svg>
         </div>
         <h4>
-          <span>Freelance</span> Designer &amp; Developer
+          <span className="hero-role__line">Freelance</span>
+          <span className="hero-role__line hero-role__line--full">
+            Designer &amp; Developer
+          </span>
         </h4>
       </div>
 

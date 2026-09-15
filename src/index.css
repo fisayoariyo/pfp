@@ -332,7 +332,7 @@ img {
   right: clamp(1.25rem, 8vw, 8rem);
   top: 42%;
   z-index: 5;
-  max-width: 11rem;
+  max-width: none;
 }
 
 .hero-role__arrow {
@@ -346,8 +346,12 @@ img {
   line-height: 1.35;
 }
 
-.hero-role h4 span {
+.hero-role__line {
   display: block;
+}
+
+.hero-role__line--full {
+  white-space: nowrap;
 }
 
 .big-name {
@@ -531,15 +535,6 @@ img {
   color: var(--color-dark);
 }
 
-.mouse-pos-list-image {
-  background: #3e3e3e;
-}
-
-.mouse-pos-list-image .overlay-image {
-  inset: 8%;
-  border-radius: 0.15rem;
-}
-
 .grid-sub-title {
   margin-bottom: 1.5rem;
 }
@@ -637,28 +632,31 @@ img {
   gap: 0.25rem;
 }
 
-/* ——— Cursor-following work preview (Dennis) ——— */
+/* ——— Cursor-following work preview ——— */
 .mouse-pos-list-image {
   width: 0;
-  z-index: 25;
+  height: 0;
+  z-index: 40;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   overflow: hidden;
-  will-change: transform, width;
-  transition: width 0.4s cubic-bezier(0.36, 0, 0.66, 0);
+  background: #2a2a2a;
+  border-radius: 0.2rem;
+  will-change: transform, width, height;
+  transition:
+    width 0.35s cubic-bezier(0.34, 1, 0.64, 1),
+    height 0.35s cubic-bezier(0.34, 1, 0.64, 1);
 }
 
 .mouse-pos-list-image.active {
-  width: clamp(10em, 27.5vw, 25em);
-  transition: width 0.4s cubic-bezier(0.34, 1, 0.64, 1);
+  width: clamp(14rem, 28vw, 24rem);
+  height: clamp(14rem, 28vw, 24rem);
 }
 
 .mouse-pos-list-image::before {
-  display: block;
-  content: "";
-  padding-top: 100%;
+  display: none;
 }
 
 .mouse-pos-list-image-bounce {
@@ -667,25 +665,18 @@ img {
   overflow: hidden;
 }
 
-.float-image-wrap {
-  width: 100%;
+.overlay-image--hover {
   position: absolute;
-  left: 0;
-  top: 0;
-  transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
-  will-change: transform;
-}
-
-.mouse-pos-list-image-inner {
-  position: relative;
-  width: 100%;
+  inset: 0.65rem;
+  border-radius: 0.15rem;
   overflow: hidden;
 }
 
-.mouse-pos-list-image-inner::before {
+.overlay-image--hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  content: "";
-  padding-top: 100%;
 }
 
 .overlay-image {

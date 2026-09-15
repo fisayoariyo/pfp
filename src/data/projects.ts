@@ -24,10 +24,10 @@ export const projects: Project[] = [
     service: 'Design & Development',
     excerpt: 'Storydoc-inspired electronic press kit for Afro-R&B artist Ossy Brown.',
     stack: 'WordPress, PHP, Custom CSS, JavaScript',
-    liveUrl: 'http://localhost/epk/',
+    liveUrl: 'https://ossybrown.com/',
     year: '2026',
     accent: '#1a1a1a',
-    image: '/projects/ossy-brown-epk-site.svg',
+    image: '/projects/ossy-brown-epk.jpg',
   },
   {
     title: 'DotCharis Consult',

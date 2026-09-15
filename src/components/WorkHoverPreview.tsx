@@ -6,10 +6,9 @@ type Props = {
   activeIndex: number | null
 }
 
-/** Cursor-following project image only — no View pill or extra chrome. */
+/** Cursor-following project image — shows the hovered project's shot only. */
 export function WorkHoverPreview({ projects, activeIndex }: Props) {
   const imageRef = useRef<HTMLDivElement>(null)
-  const wrapRef = useRef<HTMLDivElement>(null)
   const pos = useRef({ x: 0, y: 0 })
   const target = useRef({ x: 0, y: 0 })
   const [enabled, setEnabled] = useState(false)
@@ -32,8 +31,8 @@ export function WorkHoverPreview({ projects, activeIndex }: Props) {
 
     let raf = 0
     const tick = () => {
-      pos.current.x += (target.current.x - pos.current.x) * 0.16
-      pos.current.y += (target.current.y - pos.current.y) * 0.16
+      pos.current.x += (target.current.x - pos.current.x) * 0.18
+      pos.current.y += (target.current.y - pos.current.y) * 0.18
       const { x, y } = pos.current
       if (imageRef.current) {
         imageRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`
@@ -49,14 +48,10 @@ export function WorkHoverPreview({ projects, activeIndex }: Props) {
     }
   }, [enabled])
 
-  useEffect(() => {
-    if (!wrapRef.current || activeIndex === null) return
-    wrapRef.current.style.transform = `translateY(${activeIndex * -100}%)`
-  }, [activeIndex])
-
   if (!enabled) return null
 
   const active = activeIndex !== null
+  const project = active ? projects[activeIndex] : null
 
   return (
     <div
@@ -65,18 +60,19 @@ export function WorkHoverPreview({ projects, activeIndex }: Props) {
       aria-hidden
     >
       <div className={`mouse-pos-list-image-bounce${active ? ' active' : ''}`}>
-        <div className="float-image-wrap" ref={wrapRef}>
-          {projects.map((project) => (
-            <div key={project.slug} className="mouse-pos-list-image-inner">
-              <div
-                className="overlay-image"
-                style={{ backgroundColor: project.accent }}
-              >
-                <img src={previewSrc(project)} alt="" loading="lazy" />
-              </div>
-            </div>
-          ))}
-        </div>
+        {project ? (
+          <div
+            className="overlay-image overlay-image--hover"
+            style={{ backgroundColor: project.accent }}
+          >
+            <img
+              key={project.slug}
+              src={previewSrc(project)}
+              alt=""
+              draggable={false}
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   )
