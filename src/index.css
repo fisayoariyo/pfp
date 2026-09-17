@@ -573,14 +573,15 @@ img {
 }
 
 .btn-pill--light {
-  border-color: var(--color-dark);
-  color: var(--color-dark);
-  background: #fff;
+  border-color: var(--color-blue);
+  color: #fff;
+  background: var(--color-blue);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .btn-pill--light .count-nr {
-  background: var(--color-dark);
-  color: #fff;
+  background: #fff;
+  color: var(--color-dark);
 }
 
 .btn-pill--light:hover {
@@ -596,6 +597,36 @@ img {
 
 .btn-pill--light .btn-pill__fill {
   display: none;
+}
+
+/* More work — blue default, black hover, no motion */
+.more-work .btn-pill--more {
+  background-color: #455ce9;
+  border: 1px solid #455ce9;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  transform: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.more-work .btn-pill--more .count-nr {
+  background: #fff;
+  color: #1c1d20;
+}
+
+.more-work .btn-pill--more:hover,
+.more-work .btn-pill--more:focus-visible {
+  background-color: #1c1d20;
+  border-color: #1c1d20;
+  color: #fff;
+}
+
+.more-work .btn-pill--more:hover .count-nr,
+.more-work .btn-pill--more:focus-visible .count-nr {
+  background: #fff;
+  color: #1c1d20;
 }
 
 .theme-light .grid-sub-title h5 {
@@ -785,33 +816,61 @@ img {
   justify-content: center;
   margin-left: auto;
   border-radius: 50%;
+  position: relative;
+  isolation: isolate;
+}
+
+.home-intro .btn-round-wrap {
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 0 18px rgba(255, 255, 255, 0.22),
-    0 0 36px rgba(255, 255, 255, 0.1);
-  animation: about-glow 2.8s ease-in-out infinite;
+    0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 0 20px rgba(255, 255, 255, 0.35),
+    0 0 48px rgba(255, 255, 255, 0.18);
+  animation: about-glow 2.4s ease-in-out infinite;
+}
+
+.home-intro .btn-round-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  z-index: -1;
+  animation: about-ring 2.4s ease-in-out infinite;
 }
 
 @keyframes about-glow {
   0%,
   100% {
     box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.08),
-      0 0 14px rgba(255, 255, 255, 0.16),
-      0 0 28px rgba(255, 255, 255, 0.07);
+      0 0 0 1px rgba(255, 255, 255, 0.28),
+      0 0 16px rgba(255, 255, 255, 0.28),
+      0 0 40px rgba(255, 255, 255, 0.12);
   }
   50% {
     box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.18),
-      0 0 22px rgba(255, 255, 255, 0.3),
-      0 0 42px rgba(255, 255, 255, 0.14);
+      0 0 0 2px rgba(255, 255, 255, 0.5),
+      0 0 28px rgba(255, 255, 255, 0.5),
+      0 0 56px rgba(255, 255, 255, 0.22);
+  }
+}
+
+@keyframes about-ring {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
   }
 }
 
 .btn-round-wrap .btn-round {
   width: 100%;
   height: 100%;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
 /* ——— About page ——— */
@@ -1880,23 +1939,25 @@ img {
   }
 
   .btn-pill--blue-mobile {
-    background: #fff;
-    border-color: var(--color-dark);
-    color: var(--color-dark);
+    background: var(--color-blue);
+    border-color: var(--color-blue);
+    color: #fff;
   }
 
   .btn-pill--blue-mobile .count-nr {
-    background: var(--color-dark);
-    color: #fff;
+    background: #fff;
+    color: var(--color-dark);
   }
 
-  .btn-pill--blue-mobile:hover {
+  .btn-pill--blue-mobile:hover,
+  .btn-pill--blue-mobile:active {
     background: var(--color-dark);
     border-color: var(--color-dark);
     color: #fff;
   }
 
-  .btn-pill--blue-mobile:hover .count-nr {
+  .btn-pill--blue-mobile:hover .count-nr,
+  .btn-pill--blue-mobile:active .count-nr {
     background: #fff;
     color: var(--color-dark);
   }

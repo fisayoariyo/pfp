@@ -12,7 +12,6 @@ import {
   type ProjectCategory,
 } from '../data/projects'
 import { WorkHoverPreview } from './WorkHoverPreview'
-import { Magnetic } from './Magnetic'
 
 function ProjectCard({ project }: { project: Project }) {
   const href = projectHref(project)
@@ -145,26 +144,23 @@ export function Work({ startOpen = false }: { startOpen?: boolean }) {
 
       {!showMore ? (
         <section className="more-work theme-light">
-          <Magnetic strength={20}>
-            <button
-              type="button"
-              className="btn-pill btn-pill--light btn-pill--blue-mobile"
-              onClick={() => {
-                setShowMore(true)
-                window.setTimeout(() => {
-                  document
-                    .getElementById('more-projects')
-                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                }, 50)
-              }}
-            >
-              <span className="btn-pill__fill" />
-              <span className="btn-pill__text">
-                More work
-                <span className="count-nr">{remaining}</span>
-              </span>
-            </button>
-          </Magnetic>
+          <button
+            type="button"
+            className="btn-pill btn-pill--more"
+            onClick={() => {
+              setShowMore(true)
+              window.setTimeout(() => {
+                document
+                  .getElementById('more-projects')
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }, 50)
+            }}
+          >
+            <span className="btn-pill__text">
+              More work
+              <span className="count-nr">{remaining}</span>
+            </span>
+          </button>
         </section>
       ) : null}
 
