@@ -5,6 +5,7 @@ import { MobileMenu } from './MobileMenu'
 export function Nav() {
   const { pathname } = useLocation()
   const [light, setLight] = useState(pathname === '/' || pathname === '/work')
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -13,6 +14,8 @@ export function Nav() {
 
   useEffect(() => {
     const onScroll = () => {
+      setScrolled(window.scrollY > 40)
+
       if (pathname === '/about') {
         const whiteSection = document.querySelector('.about-image')
         if (!whiteSection) {
@@ -63,9 +66,15 @@ export function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
+  const openMenu = () => setMenuOpen(true)
+
   return (
     <>
-      <header className={`nav-bar${light ? ' nav-bar--light' : ''}`}>
+      <header
+        className={`nav-bar${light ? ' nav-bar--light' : ''}${
+          scrolled ? ' nav-bar--scrolled' : ''
+        }${menuOpen ? ' nav-bar--menu-open' : ''}`}
+      >
         <NavLink className="nav-credits" to="/">
           <span className="nav-credits__mark">©</span>
           <span className="nav-credits__text">
@@ -91,14 +100,22 @@ export function Nav() {
 
         <button
           type="button"
-          className={`menu-burger${light ? ' menu-burger--light' : ''}${
-            menuOpen ? ' is-open' : ''
-          }`}
+          className="menu-label"
+          aria-label="Open menu"
+          aria-expanded={menuOpen}
+          onClick={openMenu}
+        >
+          <span className="menu-label__dot" aria-hidden />
+          Menu
+        </button>
+
+        <button
+          type="button"
+          className="menu-burger"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((v) => !v)}
+          onClick={openMenu}
         >
-          <span />
           <span />
           <span />
         </button>
