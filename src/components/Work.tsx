@@ -5,6 +5,7 @@ import {
   categoryLabels,
   featured,
   moreProjects,
+  mobilePreviewSrc,
   previewSrc,
   projectHref,
   sortMoreProjects,
@@ -18,7 +19,10 @@ function ProjectCard({ project }: { project: Project }) {
   const external = href.startsWith('http')
 
   return (
-    <article className="project-card" style={{ ['--project-accent' as string]: project.accent }}>
+    <article
+      className={`project-card${project.imageMobile ? ' project-card--mobile-logo' : ''}`}
+      style={{ ['--project-accent' as string]: project.accent }}
+    >
       <a
         className="project-card__link"
         href={href}
@@ -27,11 +31,19 @@ function ProjectCard({ project }: { project: Project }) {
       >
         <div className="project-card__media" style={{ backgroundColor: project.accent }}>
           <img
-            className="project-card__img"
+            className="project-card__img project-card__img--desktop"
             src={previewSrc(project)}
             alt=""
             loading="lazy"
           />
+          {project.imageMobile ? (
+            <img
+              className="project-card__img project-card__img--mobile"
+              src={mobilePreviewSrc(project)}
+              alt=""
+              loading="lazy"
+            />
+          ) : null}
           <div className="project-card__overlay">
             <span className="project-card__view">View</span>
           </div>
@@ -121,10 +133,10 @@ export function Work({ startOpen = false }: { startOpen?: boolean }) {
                     rel={href.startsWith('http') ? 'noreferrer' : undefined}
                   >
                     <div
-                      className="tile-image"
+                      className={`tile-image${project.imageMobile ? ' tile-image--logo' : ''}`}
                       style={{ backgroundColor: project.accent }}
                     >
-                      <img src={previewSrc(project)} alt="" loading="lazy" />
+                      <img src={mobilePreviewSrc(project)} alt="" loading="lazy" />
                     </div>
                     <h4>{project.title}</h4>
                     <div className="tile-meta">

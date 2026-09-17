@@ -1177,6 +1177,14 @@ img {
   object-fit: cover;
 }
 
+.tile-image--logo {
+  background: #f5f5f5 !important;
+}
+
+.tile-image--logo img {
+  object-fit: contain;
+}
+
 .tile-row h4 {
   margin: 0;
   font-size: 1.6rem;
@@ -1656,6 +1664,25 @@ img {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+}
+
+.project-card__img--mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .project-card--mobile-logo .project-card__media {
+    background: #f5f5f5 !important;
+  }
+
+  .project-card--mobile-logo .project-card__img--desktop {
+    display: none;
+  }
+
+  .project-card--mobile-logo .project-card__img--mobile {
+    display: block;
+    object-fit: contain;
+  }
 }
 
 .project-card:hover .project-card__img {

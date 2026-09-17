@@ -16,6 +16,8 @@ export type Project = {
   year: string
   accent: string
   image: string
+  /** Optional image used on mobile cards/tiles */
+  imageMobile?: string
 }
 
 export const categories: { slug: 'all' | ProjectCategory; label: string }[] = [
@@ -36,6 +38,10 @@ export const categoryLabels: Record<ProjectCategory, string> = {
 /** Curated local site shots — never swap for remote thumbnails. */
 export function previewSrc(project: Project): string {
   return project.image
+}
+
+export function mobilePreviewSrc(project: Project): string {
+  return project.imageMobile || project.image
 }
 
 export function projectHref(project: Project): string {
@@ -68,6 +74,7 @@ export const projects: Project[] = [
     year: '2025',
     accent: '#101010',
     image: '/projects/bshp-portfolio.png',
+    imageMobile: '/projects/bshp-logo.png',
   },
   {
     title: 'HFEI CropEx',
@@ -174,20 +181,11 @@ export const projects: Project[] = [
     excerpt: 'Editorial minimal WooCommerce theme for fashion.',
     stack: 'WordPress, WooCommerce, PHP, Elementor',
     category: 'woocommerce',
+    liveUrl: 'https://miyakidesigns.com/',
     year: '2025',
     accent: '#F8F1F4',
     image: '/projects/miyaki-theme.png',
-  },
-  {
-    title: 'Vela Store',
-    slug: 'vela-store',
-    service: 'Design & Development',
-    excerpt: 'Clean editorial WooCommerce theme — mobile-first.',
-    stack: 'WordPress, WooCommerce, PHP 8+',
-    category: 'woocommerce',
-    year: '2025',
-    accent: '#F1F1F1',
-    image: '/projects/miyaki-theme.png',
+    imageMobile: '/projects/miyaki-logo.png',
   },
   {
     title: 'Nest Gadgets',

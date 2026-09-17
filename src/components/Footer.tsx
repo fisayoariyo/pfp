@@ -93,12 +93,6 @@ export function Footer() {
               +234-708-771-0080
             </a>
           </div>
-          <div className="footer-simple__block">
-            <span className="footer-meta-label">Business details</span>
-            <p>Fisayo Ariyo</p>
-            <p>Freelance Designer &amp; Developer</p>
-            <p>Lagos, Nigeria</p>
-          </div>
         </div>
 
         <div className="footer-socials-block">
