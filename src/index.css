@@ -1169,20 +1169,25 @@ img {
   border-radius: 0.35rem;
   margin-bottom: 0.5rem;
   overflow: hidden;
+  position: relative;
 }
 
 .tile-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .tile-image--logo {
-  background: #f5f5f5 !important;
+  background: #fff !important;
 }
 
 .tile-image--logo img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
 }
 
 .tile-row h4 {
@@ -1660,9 +1665,12 @@ img {
 }
 
 .project-card__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.4s ease;
 }
 
@@ -1672,16 +1680,26 @@ img {
 
 @media (max-width: 900px) {
   .project-card--mobile-logo .project-card__media {
-    background: #f5f5f5 !important;
+    background-color: #ffffff !important;
   }
 
   .project-card--mobile-logo .project-card__img--desktop {
-    display: none;
+    display: none !important;
   }
 
   .project-card--mobile-logo .project-card__img--mobile {
-    display: block;
-    object-fit: contain;
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+  }
+
+  .project-card--mobile-logo:hover .project-card__img--mobile {
+    transform: scale(1.03);
   }
 }
 

@@ -29,7 +29,14 @@ function ProjectCard({ project }: { project: Project }) {
         target={external ? '_blank' : undefined}
         rel={external ? 'noreferrer' : undefined}
       >
-        <div className="project-card__media" style={{ backgroundColor: project.accent }}>
+        <div
+          className="project-card__media"
+          style={
+            project.imageMobile
+              ? { backgroundColor: '#ffffff' }
+              : { backgroundColor: project.accent }
+          }
+        >
           <img
             className="project-card__img project-card__img--desktop"
             src={previewSrc(project)}

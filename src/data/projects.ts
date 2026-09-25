@@ -62,6 +62,7 @@ export const projects: Project[] = [
     year: '2025',
     accent: '#0a1628',
     image: '/projects/dotcharis-consult.png',
+    imageMobile: '/projects/dotcharis-logo.png?v=2',
   },
   {
     title: 'BSHP Portfolio',
@@ -74,7 +75,7 @@ export const projects: Project[] = [
     year: '2025',
     accent: '#101010',
     image: '/projects/bshp-portfolio.png',
-    imageMobile: '/projects/bshp-logo.png',
+    imageMobile: '/projects/bshp-logo.png?v=2',
   },
   {
     title: 'HFEI CropEx',
@@ -173,19 +174,6 @@ export const projects: Project[] = [
     year: '2025',
     accent: '#0a0a0a',
     image: '/projects/million-dollar-ideas.jpg',
-  },
-  {
-    title: 'Miyaki Store',
-    slug: 'miyaki-theme',
-    service: 'Design & Development',
-    excerpt: 'Editorial minimal WooCommerce theme for fashion.',
-    stack: 'WordPress, WooCommerce, PHP, Elementor',
-    category: 'woocommerce',
-    liveUrl: 'https://miyakidesigns.com/',
-    year: '2025',
-    accent: '#F8F1F4',
-    image: '/projects/miyaki-theme.png',
-    imageMobile: '/projects/miyaki-logo.png',
   },
   {
     title: 'Nest Gadgets',
