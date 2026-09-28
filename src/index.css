@@ -983,6 +983,9 @@ img {
 .photo-card-wrap {
   perspective: 900px;
   width: 100%;
+  max-width: min(380px, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .photo-card {
@@ -997,6 +1000,8 @@ img {
     box-shadow 0.35s ease;
   will-change: transform;
   aspect-ratio: 3 / 4;
+  max-height: min(520px, 70vh);
+  width: 100%;
 }
 
 .photo-card:hover {
@@ -1115,9 +1120,13 @@ img {
 
 @media (min-width: 900px) {
   .about-image__grid {
-    grid-template-columns: 0.4fr 0.6fr;
+    grid-template-columns: 1fr minmax(240px, 380px);
     gap: 3rem;
     align-items: center;
+  }
+
+  .about-image__media {
+    justify-self: end;
   }
 
   .services-grid {
