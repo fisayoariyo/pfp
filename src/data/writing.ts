@@ -36,7 +36,7 @@ export const writingPieces: WritingPiece[] = [
     body: [
       'I build interfaces for a living and poems for a life. Both ask for clarity. Both punish decoration without purpose.',
       'This page is where the literary work lives — separate from client projects, honest about craft.',
-      'Replace these placeholders with your own pieces whenever you are ready.',
+      'Take these words as glue for your own pieces whenever you are ready to be whole.',
     ],
   },
 ]
