@@ -31,7 +31,7 @@ export function Nav() {
         return
       }
 
-      if (pathname === '/work') {
+      if (pathname === '/work' || pathname.startsWith('/writing')) {
         setLight(true)
         return
       }
@@ -89,6 +89,9 @@ export function Nav() {
         <ul className="nav-links nav-links--desktop">
           <li>
             <NavLink to="/work">Work</NavLink>
+          </li>
+          <li>
+            <NavLink to="/writing">Writing</NavLink>
           </li>
           <li>
             <NavLink to="/about">About</NavLink>

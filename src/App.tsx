@@ -1,9 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Nav } from './components/Nav'
+import { DesktopDock } from './components/DesktopDock'
 import { HomePage } from './pages/HomePage'
 import { AboutPage } from './pages/AboutPage'
 import { WorkPage } from './pages/WorkPage'
 import { ContactPage } from './pages/ContactPage'
+import { WritingPage } from './pages/WritingPage'
+import { WritingPiecePage } from './pages/WritingPiecePage'
 import { ScrollToHash } from './components/ScrollToHash'
 import { Preloader } from './components/Preloader'
 import { PageFlash } from './components/PageFlash'
@@ -15,9 +18,12 @@ export default function App() {
       <PageFlash />
       <ScrollToHash />
       <Nav />
+      <DesktopDock />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkPage />} />
+        <Route path="/writing" element={<WritingPage />} />
+        <Route path="/writing/:slug" element={<WritingPiecePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

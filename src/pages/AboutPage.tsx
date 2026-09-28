@@ -1,5 +1,6 @@
 import { PhotoCard } from '../components/PhotoCard'
 import { Footer } from '../components/Footer'
+import { TechStack } from '../components/TechStack'
 
 const services = [
   {
@@ -99,6 +100,8 @@ export function AboutPage() {
           </div>
         </div>
       </section>
+
+      <TechStack />
 
       <Footer />
     </div>
