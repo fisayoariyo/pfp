@@ -1120,13 +1120,19 @@ img {
 
 @media (min-width: 900px) {
   .about-image__grid {
-    grid-template-columns: 1fr minmax(240px, 380px);
-    gap: 3rem;
+    grid-template-columns: minmax(16rem, 22rem) minmax(240px, 380px);
+    gap: 2.5rem;
     align-items: center;
+    justify-content: start;
   }
 
   .about-image__media {
-    justify-self: end;
+    justify-self: start;
+  }
+
+  .photo-card-wrap {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .services-grid {
