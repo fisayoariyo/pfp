@@ -7,13 +7,13 @@ export function Intro() {
       <div className="container medium">
         <div className="intro-row">
           <h4 className="intro-lead">
-            Helping brands to stand out in the digital era. Together we will set
-            the new status quo. No nonsense, always on the cutting edge.
+            Crafting modern web experiences that elevate your brand and engage
+            your audience.
           </h4>
           <div className="intro-side">
             <p>
-              The combination of my passion for design, code &amp; interaction
-              positions me in a unique place in the web design world.
+              Merging design intuition with modern engineering to set a higher
+              standard for the web.
             </p>
             <Magnetic strength={40} className="btn-round-wrap">
               <Link className="btn-round" to="/about">
