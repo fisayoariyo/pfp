@@ -949,7 +949,7 @@ img {
   margin: 0;
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
   line-height: 1.45;
-  max-width: 18rem;
+  max-width: 28rem;
 }
 
 .about-image__muted {
@@ -1120,8 +1120,8 @@ img {
 
 @media (min-width: 900px) {
   .about-image__grid {
-    grid-template-columns: minmax(16rem, 22rem) minmax(240px, 380px);
-    gap: 2.5rem;
+    grid-template-columns: minmax(20rem, 1fr) minmax(240px, 360px);
+    gap: 2rem;
     align-items: center;
     justify-content: start;
   }
