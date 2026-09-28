@@ -949,7 +949,7 @@ img {
   margin: 0;
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
   line-height: 1.45;
-  max-width: 28rem;
+  max-width: none;
 }
 
 .about-image__muted {
@@ -1120,14 +1120,22 @@ img {
 
 @media (min-width: 900px) {
   .about-image__grid {
-    grid-template-columns: minmax(20rem, 1fr) minmax(240px, 360px);
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+    gap: 3rem;
     align-items: center;
-    justify-content: start;
+    justify-content: stretch;
+  }
+
+  .about-image__copy {
+    max-width: 36rem;
+  }
+
+  .about-image__copy p {
+    max-width: 34rem;
   }
 
   .about-image__media {
-    justify-self: start;
+    justify-self: end;
   }
 
   .photo-card-wrap {
