@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
+/** Main nav destinations only — not nested routes like /writing/:slug */
 const labels: Record<string, string> = {
   '/': 'Home',
   '/work': 'Work',
+  '/writing': 'Writing',
   '/about': 'About',
   '/contact': 'Contact',
 }
 
-/** Brief single-word flash when navigating between pages (not multi-language). */
+/** Brief single-word flash when switching primary nav pages. */
 export function PageFlash() {
   const { pathname } = useLocation()
   const first = useRef(true)
@@ -21,7 +23,9 @@ export function PageFlash() {
       return
     }
 
-    const label = labels[pathname] ?? 'Hello'
+    const label = labels[pathname]
+    if (!label) return
+
     setWord(label)
     setLeaving(false)
     document.body.style.overflow = 'hidden'
