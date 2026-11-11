@@ -128,6 +128,19 @@ export const projects: Project[] = [
     image: '/projects/cropex-admin.png',
   },
   {
+    title: 'Tata Eats',
+    slug: 'tata-eats',
+    service: 'Design & Development',
+    excerpt:
+      'Food ordering platform with a React storefront and Moost.js API for menus, orders, and operations.',
+    stack: 'React, Moost.js, TypeScript, REST API',
+    category: 'react',
+    liveUrl: 'https://tataeats.com/',
+    year: '2026',
+    accent: '#FFF4E8',
+    image: '/projects/tata-eats.png',
+  },
+  {
     title: 'Clicks Aladire',
     slug: 'clicks-aladire',
     service: 'Design & Development',

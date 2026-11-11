@@ -31,6 +31,7 @@ const stacks = [
     tone: 'apps',
     items: [
       'REST APIs',
+      'Moost.js',
       'Supabase',
       'TanStack Query',
       'Node-friendly backends',
