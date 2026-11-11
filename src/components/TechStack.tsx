@@ -27,16 +27,21 @@ const stacks = [
     ],
   },
   {
-    title: 'Apps & APIs',
+    title: 'Backend & APIs',
     tone: 'apps',
     items: [
-      'REST APIs',
+      'Node.js',
+      'Nest.js',
       'Moost.js',
+      'Express.js',
+      'PostgreSQL',
+      'MongoDB',
+      'REST APIs',
       'Supabase',
-      'TanStack Query',
-      'Node-friendly backends',
-      'sql.js / offline-first',
       'Firebase Auth',
+      'TanStack Query',
+      'sql.js / offline-first',
+      'JWT / RBAC',
     ],
   },
   {
@@ -72,7 +77,7 @@ export function TechStack() {
         <h2>Tools I build with</h2>
         <p className="tech-stack__lede">
           The stack behind client work — from WordPress and WooCommerce to React
-          apps and interaction-heavy interfaces.
+          apps, Node backends, and interaction-heavy interfaces.
         </p>
         <div className="tech-stack__grid">
           {stacks.map((group) => (
